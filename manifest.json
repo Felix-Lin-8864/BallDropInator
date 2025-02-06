@@ -1,0 +1,23 @@
+{
+    "name": "Ball-Drop-Inator",
+    "description": "Drop balls == win points!",
+    "version": "1.0",
+    "manifest_version": 3,
+    "permissions": ["storage"],
+    "action": {
+        "default_popup": "index.html",
+        "default_icon": "src/assets/icon.PNG"
+    },
+    "icons": [
+        {
+            "src": "src/assets/favicon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "src/assets/favicon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}
