@@ -53,6 +53,7 @@ const BoardUI: React.FC<GameBoard> = ({
     // boardCoords never returns empty array, so pop() won't return undefined
     const multiCoords: number[] = pegCoords.pop()!;
 
+    const [bvInputVal, setBvInputVal] = useState<string>(ballValue.toString());
     const [warn, setWarn] = useState<boolean>(false);
     const onBallDrop = (): void => {
         // if insufficient funds to drop ball
@@ -73,8 +74,21 @@ const BoardUI: React.FC<GameBoard> = ({
                         Ball Value:{" "}
                         <input
                             type="number"
-                            value={ballValue}
-                            onChange={(e) => setBallValue(Math.max(1, parseInt(e.target.value) || 1))}
+                            value={bvInputVal}
+                            onChange={(e) => {
+                                setBvInputVal(e.target.value);
+                                const val = parseInt(bvInputVal);
+                                if (!isNaN(val)) {
+                                    setBallValue(val);
+                                }
+                            }}
+                            onBlur={() => {
+                                const val = parseInt(bvInputVal);
+                                if (isNaN(val) || val < 1) {
+                                    setBallValue(1);
+                                    setBvInputVal("1");
+                                }
+                            }}
                         ></input>
                     </label>
 

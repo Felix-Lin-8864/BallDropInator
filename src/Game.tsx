@@ -10,7 +10,7 @@ export type Ball = {
 const row_multipliers: Map<number, number[]> = new Map([
     [10, [10, 3.4, 1.8, 0.9, 0.5, 0.2, 0.5, 0.9, 1.8, 3.4, 10]],
     [12, [25, 8.8, 4.4, 0.9, 0.5, 0.2, 0.1, 0.2, 0.5, 0.9, 4.4, 8.8, 25]],
-    [14, [500, 200, 50, 25, 3.6, 0.6, 0.2, 0.1, 0.2, 0.6, 3.6, 25, 50, 200, 500]],
+    [14, [500, 200, 50, 5, 3.6, 0.6, 0.2, 0.1, 0.2, 0.6, 3.6, 5, 50, 200, 500]],
 ]);
 
 const Game: React.FC = () => {
@@ -77,7 +77,7 @@ const Game: React.FC = () => {
 
     // once a ball reaches a bucket and stops, calculate winnings and add to wallet
     const onBallStop = (ball: Ball): void => {
-        const endSound: HTMLAudioElement = new Audio("../../bing.mp3");
+        const endSound: HTMLAudioElement = new Audio("/BallDropInator/assets/bing.mp3");
         endSound.playbackRate = 2.0;
         endSound.play();
 
