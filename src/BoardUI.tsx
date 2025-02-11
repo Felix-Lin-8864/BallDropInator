@@ -81,12 +81,16 @@ const BoardUI: React.FC<GameBoard> = ({
                                 if (!isNaN(val)) {
                                     setBallValue(val);
                                 }
+                                console.log(bvInputVal);
                             }}
                             onBlur={() => {
                                 const val = parseInt(bvInputVal);
                                 if (isNaN(val) || val < 1) {
                                     setBallValue(1);
                                     setBvInputVal("1");
+                                } else {
+                                    setBallValue(val);
+                                    setBvInputVal(val.toString());
                                 }
                             }}
                         ></input>
